@@ -1,0 +1,21 @@
+{
+  "name": "umi-in-action",
+  "version": "0.1.0",
+  "description": "Umi 实战",
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ykfe/umi-in-action.git"
+  },
+  "keywords": [
+    "umi"
+  ],
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ykfe/umi-in-action/issues"
+  },
+  "homepage": "https://github.com/ykfe/umi-in-action#readme"
+}

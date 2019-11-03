@@ -1,9 +1,8 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gatsby-docs-site-starter",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Umi in action 实战",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "gatsby": "^2.17.6",
     "gatsby-image": "^2.2.30",
@@ -18,9 +17,6 @@
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1"
   },
-  "devDependencies": {
-    "prettier": "^1.18.2"
-  },
   "keywords": [
     "gatsby"
   ],
@@ -32,12 +28,5 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
