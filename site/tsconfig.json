@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "esnext",
+    "lib": ["dom", "es2017"],
+    "module": "commonjs",
+    "allowJs": false,
+    "jsx": "react",
+    "types": [],
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true
+  },
+  "include": ["./src"]
+}
