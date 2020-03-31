@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import Layout from '../components/layout';
-import Image from '../components/image';
 import SEO from '../components/seo';
 
 const User = styled.p`
@@ -23,9 +22,7 @@ const IndexPage = (): JSX.Element => (
     <User>Created By LiYu</User>
     <p>Welcome to your new Gatsby site.</p>
     <p css={border}>Now go build something great.</p>
-    <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-      <Image />
-    </div>
+    <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>2</div>
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 );
