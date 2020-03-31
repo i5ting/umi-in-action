@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 
@@ -8,6 +7,7 @@ const Document = ({
 }: {
   data: {
     markdownRemark: {
+      html: string;
       frontmatter: {
         title: string;
       };
@@ -18,19 +18,11 @@ const Document = ({
   return (
     <Layout>
       <h1>{post.frontmatter.title}</h1>
+      {/* eslint-disable-next-line react/no-danger */}
+      <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </Layout>
   );
 };
-
-// Document.propTypes = {
-//   data: PropTypes.shape({
-//     markdownRemark: PropTypes.shape({
-//       frontmatter: PropTypes.shape({
-//         title: PropTypes.string,
-//       }),
-//     }),
-//   }).isRequired,
-// };
 
 export default Document;
 

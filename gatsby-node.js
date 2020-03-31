@@ -1,10 +1,18 @@
 const path = require('path');
-const { createFilePath } = require('gatsby-source-filesystem');
+
+const getMdSlug = filesss => {
+  const { name, relativeDirectory, sourceInstanceName } = filesss;
+  if (name === 'README') {
+    return `${sourceInstanceName}/${relativeDirectory}`;
+  }
+  return `${sourceInstanceName}/${relativeDirectory}/${name}`;
+};
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` });
+    const fileNode = getNode(node.parent);
+    const slug = getMdSlug(fileNode);
 
     createNodeField({
       node,
