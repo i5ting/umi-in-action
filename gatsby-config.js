@@ -3,7 +3,7 @@ module.exports = {
     title: `Umi in action`,
     siteUrl: `https://umi.notodo.cn`,
     description: `UmiJs 实战`,
-    author: `authored by 拾邑@suanmei, 罄天@liangklfangl, 十忆@zhangyuang; reviewed by 狼叔@i5ting`,
+    author: `狼叔@i5ting, 拾邑@suanmei, 罄天@liangklfangl, 十忆@zhangyuang`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
