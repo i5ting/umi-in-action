@@ -3,7 +3,10 @@ const path = require('path');
 const getMdSlug = filesss => {
   const { name, relativeDirectory, sourceInstanceName } = filesss;
   if (name === 'README') {
-    return `${sourceInstanceName}/${relativeDirectory}`;
+    if (relativeDirectory === '') {
+      return `${sourceInstanceName}/introduction`;
+    }
+    return `${sourceInstanceName}/${relativeDirectory}/overview`;
   }
   return `${sourceInstanceName}/${relativeDirectory}/${name}`;
 };

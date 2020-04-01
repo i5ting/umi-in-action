@@ -63,6 +63,3 @@ public
 
 # Mac files
 .DS_Store
-
-# npm file
-package-lock.json

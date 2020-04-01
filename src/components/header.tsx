@@ -1,5 +1,4 @@
 import { Link } from 'gatsby';
-import * as PropTypes from 'prop-types';
 import * as React from 'react';
 
 const Header = ({ siteTitle }: { siteTitle: string }): JSX.Element => (
@@ -30,13 +29,5 @@ const Header = ({ siteTitle }: { siteTitle: string }): JSX.Element => (
     </div>
   </header>
 );
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: ``,
-};
 
 export default Header;

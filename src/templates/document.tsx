@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
+import DocumentWrapper from '../components/document-wrapper';
 
 const Document = ({
   data,
@@ -17,9 +18,11 @@ const Document = ({
   const post = data.markdownRemark;
   return (
     <Layout>
-      <h1>{post.frontmatter.title}</h1>
-      {/* eslint-disable-next-line react/no-danger */}
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <DocumentWrapper>
+        <h1>{post.frontmatter.title}</h1>
+        {/* eslint-disable-next-line react/no-danger */}
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      </DocumentWrapper>
     </Layout>
   );
 };
