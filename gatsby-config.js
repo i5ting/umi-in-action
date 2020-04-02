@@ -14,7 +14,19 @@ module.exports = {
         path: `${__dirname}/docs`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              showLineNumbers: true,
+            },
+          },
+        ],
+      },
+    },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-emotion`,
     `gatsby-transformer-sharp`,
