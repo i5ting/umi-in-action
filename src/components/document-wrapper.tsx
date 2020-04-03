@@ -1,26 +1,14 @@
 import * as React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
+import { Match } from '@reach/router';
 import * as documentList from '../../docs/docs.yml';
 import transArray2Map from '../utils/transform';
-import { AllMarkdown, MenuItem } from '../model';
-
-const getDocumentMenu = (data: AllMarkdown): MenuItem[] => {
-  const mdMap = transArray2Map(data, 'node.fields.slug', 'node.frontmatter.title');
-
-  return documentList.map(document => {
-    const { chapter, sections } = document;
-    document.chapter = mdMap.get(`docs/${chapter}`);
-    if (sections) {
-      document.sections = sections.map(section => mdMap.get(`docs/${chapter}/${section}`));
-    }
-    return document;
-  });
-};
+import { AllMarkdown } from '../model';
 
 export default ({ children }: { children: React.ReactNode }): JSX.Element => {
   const {
     allMarkdownRemark: { edges },
-  } = useStaticQuery(graphql`
+  }: { allMarkdownRemark: { edges: AllMarkdown } } = useStaticQuery(graphql`
     query {
       allMarkdownRemark {
         edges {
@@ -36,21 +24,33 @@ export default ({ children }: { children: React.ReactNode }): JSX.Element => {
       }
     }
   `);
-  const menuList = getDocumentMenu(edges);
+  const mdMap = transArray2Map(edges, 'node.fields.slug', 'node.frontmatter.title');
   return (
     <div>
       <ul>
-        {menuList.map(menu => (
-          <li key={menu.chapter}>
-            <p>{menu.chapter}</p>
-            {menu.sections && menu.sections.length && (
-              <ul>
-                {menu.sections.map(section => (
-                  <li key={section}>{section}</li>
-                ))}
-              </ul>
-            )}
-          </li>
+        {documentList.map(menu => (
+          <Match path="/docs/*" key={menu.chapter}>
+            {(): JSX.Element => {
+              return (
+                <li key={menu.chapter}>
+                  <p>
+                    <Link to={`/docs/${menu.chapter}`}>{mdMap.get(`docs/${menu.chapter}`)}</Link>
+                  </p>
+                  {menu.sections && menu.sections.length && (
+                    <ul>
+                      {menu.sections.map(section => (
+                        <li key={section}>
+                          <Link to={`/docs/${menu.chapter}/${section}`}>
+                            {mdMap.get(`docs/${menu.chapter}/${section}`)}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              );
+            }}
+          </Match>
         ))}
       </ul>
       <div>{children}</div>
