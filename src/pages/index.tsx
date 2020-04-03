@@ -18,7 +18,7 @@ const IndexPage = (): JSX.Element => (
   <Layout>
     <SEO title="Home" />
     <h1>Hi people</h1>
-    <User>Created By LiYu</User>
+    <User>Created By BaBa</User>
     <p>Welcome to your new Gatsby site.</p>
     <p css={border}>Now go build something great.</p>
     <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>2</div>

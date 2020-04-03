@@ -1,9 +1,9 @@
-declare module '*.yaml' {
+declare module '*.yml' {
   interface DocYAML {
     chapter: string;
-    sections: string[];
+    sections?: string[];
   }
 
   const content: DocYAML[];
-  export default content;
+  export = content;
 }

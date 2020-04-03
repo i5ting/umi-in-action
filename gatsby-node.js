@@ -4,9 +4,9 @@ const getMdSlug = filesss => {
   const { name, relativeDirectory, sourceInstanceName } = filesss;
   if (name === 'README') {
     if (relativeDirectory === '') {
-      return `${sourceInstanceName}/introduction`;
+      return `${sourceInstanceName}/overview`;
     }
-    return `${sourceInstanceName}/${relativeDirectory}/overview`;
+    return `${sourceInstanceName}/${relativeDirectory}`;
   }
   return `${sourceInstanceName}/${relativeDirectory}/${name}`;
 };

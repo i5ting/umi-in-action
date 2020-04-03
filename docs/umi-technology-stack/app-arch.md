@@ -1,5 +1,5 @@
 ---
-title: Umi技术栈
+title: 应用架构
 author: 罄天
 ---
 

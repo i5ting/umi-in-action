@@ -29,6 +29,7 @@ module.exports = {
         'prettier/@typescript-eslint',
       ],
       rules: {
+        '@typescript-eslint/no-explicit-any': 'off',
         'import/extensions': [ // airbnb 配置导致 tsx 文件引用一直报错
           'error',
           'ignorePackages',
@@ -37,6 +38,7 @@ module.exports = {
             tsx: 'never',
           },
         ],
+        'no-param-reassign': 'off'
       },
     },
   ],
