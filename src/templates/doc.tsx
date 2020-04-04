@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
-import DocumentWrapper from '../components/document-wrapper';
-import { getMdMap, getMdUrl } from '../utils/misc';
-import { DocumentPage } from '../model';
+import DocWrapper from '../components/doc-wrapper';
+import { getMdUrl } from '../utils/misc';
+import { DocPage } from '../model';
 
-const Document = ({ data, pageContext }: DocumentPage): JSX.Element => {
+const Doc = ({ data, pageContext }: DocPage): JSX.Element => {
   const post = data.markdownRemark;
   return (
     <Layout>
-      <DocumentWrapper>
+      <DocWrapper>
         <a href={getMdUrl(pageContext.slug)}>
           <span role="img" aria-label="pencil">
             ✏️
@@ -19,12 +19,12 @@ const Document = ({ data, pageContext }: DocumentPage): JSX.Element => {
         <h1>{post.frontmatter.title}</h1>
         {/* eslint-disable-next-line react/no-danger */}
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </DocumentWrapper>
+      </DocWrapper>
     </Layout>
   );
 };
 
-export default Document;
+export default Doc;
 
 export const query = graphql`
   query($slug: String!) {
