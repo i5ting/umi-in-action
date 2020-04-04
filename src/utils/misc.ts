@@ -1,5 +1,5 @@
 import * as docList from '../../docs/docs.yml';
-import { AllMarkdown, NearPage } from '../model';
+import { AllMarkdown, NearPage, HtmlAst, PageMenu } from '../model';
 import transArray2Map from './transform';
 
 export const getMetaMap = transArray2Map('node.fields.slug', 'node.frontmatter.title');
@@ -17,6 +17,37 @@ export const getMdUrl = (slug: string): string => {
     return `${prefix}${slug}/README.md`;
   }
   return `${prefix}${slug}.md`;
+};
+
+export const getMenuInPage = ({ children: nodes }: HtmlAst): PageMenu => {
+  const menu: PageMenu = [];
+
+  nodes.forEach(node => {
+    if (node.tagName === 'h2') {
+      const textNode =
+        node.children.length > 0 && node.children.find(child => child.type === 'text');
+
+      menu.push({
+        title: textNode ? textNode.value : '',
+        anchor: node.properties.id,
+        children: [],
+      });
+    }
+
+    if (node.tagName === 'h3') {
+      if (menu.length === 0) return;
+
+      const textNode =
+        node.children.length > 0 && node.children.find(child => child.type === 'text');
+
+      menu[menu.length - 1].children.push({
+        title: textNode ? textNode.value : '',
+        anchor: node.properties.id,
+      });
+    }
+  });
+
+  return menu;
 };
 
 const getPrevPage = (index: number, paths: string[], docMap: Record<string, string>): NearPage => {

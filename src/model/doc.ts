@@ -7,9 +7,7 @@ export interface MarkdownRemark {
     slug: string;
   };
   html: string;
-  htmlAst: {
-    type: string;
-  };
+  htmlAst: HtmlAst;
 }
 
 export type AllMarkdown = {
@@ -30,7 +28,22 @@ export type NearPage = {
   slug: string;
 } | null;
 
-export interface MenuItem {
-  chapter: string;
-  sections?: string[];
+export interface HtmlAst {
+  children: {
+    tagName?: string;
+    properties: Record<string, string>;
+    children: {
+      type: string;
+      value: string;
+    }[];
+  }[];
 }
+
+export type PageMenu = {
+  title: string;
+  anchor: string;
+  children: {
+    title: string;
+    anchor: string;
+  }[];
+}[];
