@@ -1,7 +1,6 @@
 const path = require('path');
 
-const getMdSlug = filesss => {
-  const { name, relativeDirectory, sourceInstanceName } = filesss;
+const getMdSlug = ({ name, relativeDirectory, sourceInstanceName }) => {
   if (name === 'README') {
     if (relativeDirectory === '') {
       return `${sourceInstanceName}/overview`;
@@ -44,7 +43,7 @@ exports.createPages = async ({ graphql, actions }) => {
   data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
-      component: path.resolve(`./src/templates/document.tsx`),
+      component: path.resolve(`./src/templates/doc.tsx`),
       context: {
         slug: node.fields.slug,
       },
