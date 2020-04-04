@@ -1,6 +1,6 @@
 ---
 title: 起步
-author: 狼叔
+author: i5ting
 ---
 
 概要
