@@ -1,6 +1,4 @@
-import { css } from '@emotion/core';
-
-export default css`
+export default `
   pre::-webkit-scrollbar {
     width: 14px;
   }
