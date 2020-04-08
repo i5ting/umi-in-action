@@ -45,7 +45,7 @@ const Doc = ({ data, pageContext }: DocPage): JSX.Element => {
 
 export default Doc;
 
-export const query = graphql`
+export const markdownRemark = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
