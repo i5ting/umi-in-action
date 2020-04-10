@@ -12,13 +12,13 @@ const getMdSlug = ({ name, relativeDirectory, sourceInstanceName }) => {
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     const fileNode = getNode(node.parent);
     const slug = getMdSlug(fileNode);
 
     createNodeField({
-      node,
       name: `slug`,
+      node,
       value: slug,
     });
   }
@@ -28,19 +28,17 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const { data } = await graphql(`
     query {
-      allMarkdownRemark {
-        edges {
-          node {
-            fields {
-              slug
-            }
+      allMdx {
+        nodes {
+          fields {
+            slug
           }
         }
       }
     }
   `);
 
-  data.allMarkdownRemark.edges.forEach(({ node }) => {
+  data.allMdx.nodes.forEach(node => {
     createPage({
       path: node.fields.slug,
       component: path.resolve(`./src/templates/doc.tsx`),

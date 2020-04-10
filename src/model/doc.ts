@@ -1,4 +1,10 @@
-export interface MarkdownRemark {
+interface TOC {
+  url: string;
+  title: string;
+  items?: TOC[];
+}
+
+export interface Mdx {
   frontmatter: {
     title: string;
     author: string;
@@ -6,17 +12,17 @@ export interface MarkdownRemark {
   fields: {
     slug: string;
   };
-  html: string;
-  htmlAst: HtmlAst;
+  body: string;
+  tableOfContents: {
+    items?: TOC[];
+  };
 }
 
-export type AllMarkdown = {
-  node: MarkdownRemark;
-}[];
+export type AllMarkdown = Mdx[];
 
 export interface DocPage {
   data: {
-    markdownRemark: MarkdownRemark;
+    mdx: Mdx;
   };
   pageContext: {
     slug: string;
@@ -27,17 +33,6 @@ export type NearPage = {
   title: string;
   slug: string;
 } | null;
-
-export interface HtmlAst {
-  children: {
-    tagName?: string;
-    properties: Record<string, string>;
-    children: {
-      type: string;
-      value: string;
-    }[];
-  }[];
-}
 
 export type PageMenu = {
   title: string;

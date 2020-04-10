@@ -2,12 +2,11 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import DocWrapper from '../components/doc-wrapper';
-import { getMdUrl, getMenuInPage } from '../utils/misc';
+import { getMdUrl } from '../utils/misc';
 import { DocPage } from '../model';
 
 const Doc = ({ data, pageContext }: DocPage): JSX.Element => {
-  const post = data.markdownRemark;
-  const pageMenu = getMenuInPage(post.htmlAst);
+  const { body, frontmatter, tableOfContents } = data.mdx;
   return (
     <Layout>
       <DocWrapper>
@@ -18,24 +17,29 @@ const Doc = ({ data, pageContext }: DocPage): JSX.Element => {
             </span>
             Edit this page
           </a>
-          <h1>{post.frontmatter.title}</h1>
+          <h1>{frontmatter.title}</h1>
           {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          <div dangerouslySetInnerHTML={{ __html: body }} />
         </article>
         <nav>
           <ul>
-            {pageMenu.map(h2 => (
-              <li key={h2.title}>
-                <a href={`#${h2.anchor}`}>{h2.title}</a>
-                <ul>
-                  {h2.children.map(h3 => (
-                    <li key={h3.title}>
-                      <a href={`#${h3.anchor}`}>{h3.title}</a>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
+            {tableOfContents.items &&
+              tableOfContents.items.map((item: any) => (
+                <li key={item.url}>
+                  <a href={`#${item.url}`}>{item.title}</a>
+                  {item.items && (
+                    <ul>
+                      {item.items.map((childItem: any) => {
+                        return (
+                          <li key={childItem.url}>
+                            <a href={`#${childItem.url}`}>{childItem.title}</a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
+                </li>
+              ))}
           </ul>
         </nav>
       </DocWrapper>
@@ -45,15 +49,15 @@ const Doc = ({ data, pageContext }: DocPage): JSX.Element => {
 
 export default Doc;
 
-export const markdownRemark = graphql`
+export const mdx = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       frontmatter {
         title
         author
       }
-      htmlAst
+      tableOfContents
     }
   }
 `;

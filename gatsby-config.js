@@ -15,9 +15,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        gatsbyRemarkPlugins: [
           `gatsby-remark-autolink-headers`,
           {
             resolve: `gatsby-remark-prismjs`,
@@ -26,6 +26,7 @@ module.exports = {
             },
           },
         ],
+        extensions: [`.mdx`, `.md`],
       },
     },
     `gatsby-plugin-typescript`,
