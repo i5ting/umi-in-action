@@ -7,18 +7,16 @@ import { AllMarkdown } from '../model';
 
 export default ({ children }: { children: React.ReactNode }): JSX.Element => {
   const {
-    allMarkdownRemark: { edges: metaData },
-  }: { allMarkdownRemark: { edges: AllMarkdown } } = useStaticQuery(graphql`
+    allMdx: { nodes: metaData },
+  }: { allMdx: { nodes: AllMarkdown } } = useStaticQuery(graphql`
     query {
-      allMarkdownRemark {
-        edges {
-          node {
-            frontmatter {
-              title
-            }
-            fields {
-              slug
-            }
+      allMdx {
+        nodes {
+          frontmatter {
+            title
+          }
+          fields {
+            slug
           }
         }
       }
