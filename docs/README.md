@@ -26,11 +26,10 @@ let c = 😀;
 c = 😼;
 
 console.log("https://www.baidu.com");
-
 ```
 
 ```bash
 umi-cli --a
 ```
 
-声明一个变量 `var a = 2` ，你就是个2。
+声明一个变量 `var a = 2; console.log(heihei)` ，你就是个2。
