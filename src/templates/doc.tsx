@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { MDXProvider } from '@mdx-js/react';
 import Layout from '../components/layout';
 import DocWrapper from '../components/doc-wrapper';
+import * as MarkdownComponents from '../utils/styles/markdown-styles';
 import { getMdUrl } from '../utils/misc';
 import { DocPage } from '../model';
 
@@ -18,8 +21,9 @@ const Doc = ({ data, pageContext }: DocPage): JSX.Element => {
             Edit this page
           </a>
           <h1>{frontmatter.title}</h1>
-          {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: body }} />
+          <MDXProvider components={MarkdownComponents}>
+            <MDXRenderer tableOfContents={tableOfContents}>{body}</MDXRenderer>
+          </MDXProvider>
         </article>
         <nav>
           <ul>

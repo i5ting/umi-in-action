@@ -28,9 +28,11 @@ const draculaStyles = css`
 
     code[class*='language-'],
     pre[class*='language-'] {
+      padding: 0;
       color: #ccc;
       background: rgb(30, 31, 42);
       text-shadow: none;
+      font-size: 14px;
       font-family: 'Dank Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
       text-align: left;
       white-space: pre;
@@ -473,15 +475,6 @@ const draculaStyles = css`
       text-decoration: none;
       background-color: var(--verde);
     }
-  }
-
-  p > code[class*='language-'] {
-    margin: 0;
-    padding: 0.2rem 0.325rem;
-    font-size: 85%;
-    line-height: 1.7;
-    border-radius: 0.325em;
-    background-color: rgba(70, 80, 90, 0.1);
   }
 `;
 
