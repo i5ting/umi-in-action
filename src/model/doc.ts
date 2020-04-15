@@ -18,8 +18,6 @@ export interface Mdx {
   };
 }
 
-export type AllMarkdown = Mdx[];
-
 export interface DocPage {
   data: {
     mdx: Mdx;

@@ -1,7 +1,11 @@
 declare module '*.yml' {
   interface DocYAML {
-    chapter: string;
-    sections?: string[];
+    title: string;
+    link: string;
+    items: {
+      title: string;
+      link: string;
+    }[];
   }
 
   const content: DocYAML[];

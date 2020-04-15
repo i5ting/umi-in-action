@@ -1,26 +1,46 @@
-- chapter: overview
+- title: 介绍
+  link: /docs
 
-- chapter: the-beginning
-  sections:
-    - talk-from-cra
-    - front-end-is-complicated
-    - divided-in-three
-    - why-we-choose-umi
-    - your-first-umi-project
+- title: 起步
+  link: /docs/the-beginning
+  items:
+    - title: 从cra说起
+      link: /docs/the-beginning/talk-from-cra
+    - title: 前端无比复杂
+      link: /docs/the-beginning/front-end-is-complicated
+    - title: 三分天下
+      link: /docs/the-beginning/divided-in-three
+    - title: 为什么选择Umi
+      link: /docs/the-beginning/why-we-choose-umi
+    - title: 你的第一个umi工程
+      link: /docs/the-beginning/first-umi-project
 
-- chapter: umi-technology-stack
-  sections:
-    - history
-    - router-and-layout
-    - rule-of-catalog
-    - app-arch
+- title: umi技术栈
+  link: /docs/technology-stack
+  items:
+    - title: 历史由来
+      link: /docs/technology-stack/history
+    - title: 路由与布局
+      link: /docs/technology-stack/router-and-layout
+    - title: 目录约定
+      link: /docs/technology-stack/rule-of-catalog
+    - title: 应用架构
+      link: /docs/technology-stack/app-arch
 
-- chapter: get-started-with-umi
-  sections:
-    - create-project
-    - define-component
-    - debug
-    - concept
-    - official-module
-    - plugin
-    - lifecycle
+- title: Umi 入门
+  link: /docs/start-with-umi
+  items:
+    - title: 创建项目
+      link: /docs/start-with-umi/create-project
+    - title: 定义组件
+      link: /docs/start-with-umi/define-component
+    - title: 基本调试
+      link: /docs/start-with-umi/debug
+    - title: 概念
+      link: /docs/start-with-umi/concept
+    - title: 官方模块
+      link: /docs/start-with-umi/official-module
+    - title: 插件机制
+      link: /docs/start-with-umi/plugin
+    - title: 生命周期
+      link: /docs/start-with-umi/lifecycle

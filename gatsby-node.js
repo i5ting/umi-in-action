@@ -2,9 +2,6 @@ const path = require('path');
 
 const getMdSlug = ({ name, relativeDirectory, sourceInstanceName }) => {
   if (name === 'README') {
-    if (relativeDirectory === '') {
-      return `${sourceInstanceName}/overview`;
-    }
     return `${sourceInstanceName}/${relativeDirectory}`;
   }
   return `${sourceInstanceName}/${relativeDirectory}/${name}`;

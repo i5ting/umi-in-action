@@ -22,7 +22,7 @@ const Doc = ({ data, pageContext }: DocPage): JSX.Element => {
           </a>
           <h1>{frontmatter.title}</h1>
           <MDXProvider components={MarkdownComponents}>
-            <MDXRenderer tableOfContents={tableOfContents}>{body}</MDXRenderer>
+            <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
         </article>
         <nav>

@@ -1,47 +1,27 @@
 import * as React from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import { Link } from 'gatsby';
 import { useMatch } from '@reach/router';
 import * as docList from '../../docs/docs.yml';
-import { getMetaMap, getNearPage } from '../utils/misc';
-import { AllMarkdown } from '../model';
+import { getNearPage } from '../utils/misc';
 
 export default ({ children }: { children: React.ReactNode }): JSX.Element => {
-  const {
-    allMdx: { nodes: metaData },
-  }: { allMdx: { nodes: AllMarkdown } } = useStaticQuery(graphql`
-    query {
-      allMdx {
-        nodes {
-          frontmatter {
-            title
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  `);
-  const metaMap = getMetaMap(metaData);
   const match = useMatch(`/*`);
   const slug = match ? match['*'] : '';
-  const nearPage = getNearPage(slug, metaData);
+  const nearPage = getNearPage(slug);
 
   return (
     <div>
       <ul>
-        {docList.map(doc => (
-          <li key={doc.chapter}>
-            <p className={match && match['*'] === doc.chapter ? 'haha' : ''}>
-              <Link to={`/docs/${doc.chapter}`}>{metaMap.get(`docs/${doc.chapter}`)}</Link>
+        {docList.map(chapter => (
+          <li key={chapter.title}>
+            <p className={match && match['*'] === chapter.link ? 'haha' : ''}>
+              <Link to={chapter.link}>{chapter.title}</Link>
             </p>
-            {doc.sections && doc.sections.length && (
+            {chapter.items && chapter.items.length && (
               <ul>
-                {doc.sections.map(section => (
-                  <li key={section}>
-                    <Link to={`/docs/${doc.chapter}/${section}`}>
-                      {metaMap.get(`docs/${doc.chapter}/${section}`)}
-                    </Link>
+                {chapter.items.map(section => (
+                  <li key={section.link}>
+                    <Link to={section.link}>{section.title}</Link>
                   </li>
                 ))}
               </ul>
