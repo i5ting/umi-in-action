@@ -1,4 +1,4 @@
-interface TOC {
+export interface TOC {
   url: string;
   title: string;
   items?: TOC[];
@@ -8,6 +8,7 @@ interface Mdx {
   frontmatter: {
     title: string;
     author: string;
+    tableOfContentsDepth: number;
   };
   fields: {
     slug: string;
@@ -18,19 +19,19 @@ interface Mdx {
   };
 }
 
+export interface SiblingPage {
+  title: string;
+  link: string;
+}
+
 export interface DocPage {
   data: {
     mdx: Mdx;
   };
+  location: Location;
   pageContext: {
     slug: string;
-    prev: {
-      title: string;
-      link: string;
-    };
-    next: {
-      title: string;
-      link: string;
-    };
+    prev: SiblingPage;
+    next: SiblingPage;
   };
 }
