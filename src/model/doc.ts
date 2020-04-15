@@ -4,7 +4,7 @@ interface TOC {
   items?: TOC[];
 }
 
-export interface Mdx {
+interface Mdx {
   frontmatter: {
     title: string;
     author: string;
@@ -24,19 +24,13 @@ export interface DocPage {
   };
   pageContext: {
     slug: string;
+    prev: {
+      title: string;
+      link: string;
+    };
+    next: {
+      title: string;
+      link: string;
+    };
   };
 }
-
-export type NearPage = {
-  title: string;
-  slug: string;
-} | null;
-
-export type PageMenu = {
-  title: string;
-  anchor: string;
-  children: {
-    title: string;
-    anchor: string;
-  }[];
-}[];

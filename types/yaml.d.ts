@@ -1,4 +1,4 @@
-declare module '*.yml' {
+declare module '*.yaml' {
   interface DocYAML {
     title: string;
     link: string;
