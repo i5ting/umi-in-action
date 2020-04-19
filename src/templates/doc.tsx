@@ -6,6 +6,7 @@ import SEO from '../components/seo';
 import Layout from '../components/layout';
 import DocWrapper from '../components/doc-wrapper';
 import PrevAndNext from '../components/prev-and-next';
+import PageFooter from '../components/page-footer';
 import TableOfContents from '../components/table-of-contents';
 import * as MarkdownComponents from '../utils/styles/markdown-styles';
 import getMdUrl from '../utils/misc';
@@ -37,6 +38,7 @@ const Doc = ({ data, location, pageContext }: DocPage): JSX.Element => {
         />
         <PrevAndNext prev={prev} next={next} />
       </DocWrapper>
+      <PageFooter />
     </Layout>
   );
 };

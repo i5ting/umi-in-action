@@ -20,7 +20,12 @@ const PageFooter = (): JSX.Element => {
           color: ${colors.text.secondary};
           text-decoration: none;
           ${animatedUnderline}
+          &:hover {
+            color: ${colors.link.hoverBorder};
+          }
         `}
+        target="_blank"
+        rel="noopener noreferrer"
         href="https://github.com/suanmei/gatsby-theme-tulip"
       >
         gatsby-theme-tulip
