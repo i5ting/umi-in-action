@@ -1,4 +1,5 @@
 import Typography from 'typography';
+import { colors } from './constants';
 
 const typography = new Typography({
   bodyFontFamily: [
@@ -14,5 +15,7 @@ const typography = new Typography({
     'Apple Color Emoji',
     'Segoe UI Emoji',
   ],
+  headerColor: colors.text.header,
+  bodyColor: colors.text.primary,
 });
 export default typography;

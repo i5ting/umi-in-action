@@ -2,6 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { MDXProvider } from '@mdx-js/react';
+import SEO from '../components/seo';
 import Layout from '../components/layout';
 import DocWrapper from '../components/doc-wrapper';
 import PrevAndNext from '../components/prev-and-next';
@@ -15,6 +16,7 @@ const Doc = ({ data, location, pageContext }: DocPage): JSX.Element => {
   const { slug, prev, next } = pageContext;
   return (
     <Layout>
+      <SEO title="Docs" />
       <DocWrapper>
         <article>
           <a href={getMdUrl(slug)}>

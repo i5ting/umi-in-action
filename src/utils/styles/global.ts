@@ -11,6 +11,7 @@ const globalStyles = css`
     padding-right: 4px;
     margin-left: -20px;
   }
+
   h1 .anchor svg,
   h2 .anchor svg,
   h3 .anchor svg,
@@ -19,6 +20,7 @@ const globalStyles = css`
   h6 .anchor svg {
     visibility: hidden;
   }
+
   h1:hover .anchor svg,
   h2:hover .anchor svg,
   h3:hover .anchor svg,
