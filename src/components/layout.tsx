@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { Global, css } from '@emotion/core';
 import globalStyles from '../utils/styles/global';
 import PageHeader from './page-header';
-import PageFooter from './page-footer';
 
 const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
   const data = useStaticQuery(graphql`
@@ -26,7 +25,6 @@ const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
         `}
       >
         <main>{children}</main>
-        <PageFooter />
       </div>
     </>
   );

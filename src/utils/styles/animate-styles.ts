@@ -10,7 +10,7 @@ export const animatedUnderline = css`
     height: 2px;
     transition: transform 250ms ease;
     transform: scaleX(0);
-    background-color: ${colors.ui.hover};
+    background-color: ${colors.link.hoverBorder};
   }
   &.active::after,
   &:hover::after {

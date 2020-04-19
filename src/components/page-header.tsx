@@ -68,6 +68,8 @@ const Header = ({ siteTitle }: { siteTitle: string }): JSX.Element => {
           css={css`
             padding: 0 0.5em;
           `}
+          target="_blank"
+          rel="noopener noreferrer"
           href="https://github.com/ykfe/umi-in-action"
         >
           <FontAwesomeIcon

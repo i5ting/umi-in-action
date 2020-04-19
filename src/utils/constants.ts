@@ -30,7 +30,7 @@ const palette = {
 export const colors = {
   ...palette,
   ui: {
-    hover: palette.blue[60],
+    hover: palette.blue[70],
   },
   link: {
     color: palette.blue[50],
