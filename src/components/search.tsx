@@ -40,12 +40,14 @@ function Search(): JSX.Element {
       <FontAwesomeIcon
         css={css`
           position: absolute;
+          width: 1em;
+          height: 1em;
           right: 1em;
           top: 50%;
           transform: translateY(-50%);
+          color: grey;
         `}
         icon={faSearch}
-        color="grey"
       />
     </form>
   );
