@@ -21,10 +21,10 @@ const Layout = ({ children }: { children: React.ReactNode }): JSX.Element => {
       <PageHeader siteTitle={data.site.siteMetadata.title} />
       <div
         css={css`
-          padding-top: 5.5em;
+          padding-top: 5em;
         `}
       >
-        <main>{children}</main>
+        {children}
       </div>
     </>
   );

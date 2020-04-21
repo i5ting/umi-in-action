@@ -2,11 +2,11 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { MDXProvider } from '@mdx-js/react';
+import { css } from '@emotion/core';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import DocWrapper from '../components/doc-wrapper';
 import PrevAndNext from '../components/prev-and-next';
-import PageFooter from '../components/page-footer';
 import TableOfContents from '../components/table-of-contents';
 import * as MarkdownComponents from '../utils/styles/markdown-styles';
 import getMdUrl from '../utils/misc';
@@ -19,26 +19,35 @@ const Doc = ({ data, location, pageContext }: DocPage): JSX.Element => {
     <Layout>
       <SEO title="Docs" />
       <DocWrapper>
-        <article>
-          <a href={getMdUrl(slug)}>
-            <span role="img" aria-label="pencil">
-              ✏️
-            </span>
-            Edit this page
-          </a>
-          <h1>{frontmatter.title}</h1>
-          <MDXProvider components={MarkdownComponents}>
-            <MDXRenderer>{body}</MDXRenderer>
-          </MDXProvider>
+        <article
+          css={css`
+            margin: 0 auto;
+            max-width: 46em;
+            width: 100%;
+          `}
+        >
+          <header>
+            <a href={getMdUrl(slug)}>
+              <span role="img" aria-label="pencil">
+                ✏️
+              </span>
+              Edit this page
+            </a>
+            <h1>{frontmatter.title}</h1>
+          </header>
+          <div>
+            <MDXProvider components={MarkdownComponents}>
+              <MDXRenderer>{body}</MDXRenderer>
+            </MDXProvider>
+          </div>
+          <PrevAndNext prev={prev} next={next} />
         </article>
         <TableOfContents
           items={tableOfContents.items}
           location={location}
           depth={frontmatter.tableOfContentsDepth}
         />
-        <PrevAndNext prev={prev} next={next} />
       </DocWrapper>
-      <PageFooter />
     </Layout>
   );
 };

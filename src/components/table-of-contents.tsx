@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
+import { css } from '@emotion/core';
 import { TOC } from '../model';
 
 function isUnderDepthLimit(depth: number, maxDepth: number): boolean {
@@ -37,7 +38,13 @@ function TableOfContents({
   depth: number;
 }): JSX.Element | null {
   return items ? (
-    <nav>
+    <nav
+      css={css`
+        position: sticky;
+        max-width: 15em;
+        margin-left: 3em;
+      `}
+    >
       <h4>TABLE OF CONTENTS</h4>
       <ul>{createItems(items, location, 1, depth)}</ul>
     </nav>

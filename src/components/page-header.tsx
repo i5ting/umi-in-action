@@ -27,12 +27,12 @@ const Header = ({ siteTitle }: { siteTitle: string }): JSX.Element => {
         position: fixed;
         z-index: 2;
         display: flex;
-        padding: 1.25em 3em;
+        padding: 1em 3em;
         width: 100%;
-        height: 5.5em;
+        height: 5em;
         line-height: 3em;
         background-color: ${colors.white};
-        box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.05);
+        box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.08);
       `}
     >
       <Link

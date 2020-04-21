@@ -16,9 +16,10 @@ tableOfContentsDepth: 2
 
 很久很久以前，有个人叫陶渊明
 
-#### xiao分段 1
+#### xiao 分段 1
 
-很久很久以前，有个人叫陶渊明
+很久很久以前，有个人叫陶渊明，很久很久以前，有个人叫陶渊明，很久很久以前，有个人叫陶渊明，
+很久很久以前，有个人叫陶渊明，很久很久以前，有个人叫陶渊明，很久很久以前，有个人叫陶渊明
 
 ## 段落 2
 
@@ -37,4 +38,4 @@ console.log("https://www.baidu.com");
 umi-cli --a
 ```
 
-声明一个变量 `var a = 2; console.log(heihei)` ，你就是个2。
+声明一个变量 `var a = 2; console.log(heihei)` ，你就是个 2。
