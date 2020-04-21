@@ -1,11 +1,14 @@
 import { css } from '@emotion/core';
+import { colors } from '../constants';
 import prismStyles from './prism-styles';
 
 const globalStyles = css`
   html {
+    overflow-y: auto;
     scroll-behavior: smooth;
   }
 
+  /* 标题锚点 */
   .anchor {
     float: left;
     padding-right: 4px;

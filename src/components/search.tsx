@@ -18,17 +18,16 @@ function Search(): JSX.Element {
           padding-left: 1.5em;
           width: 230px;
           outline: none;
+          line-height: 3em;
           color: ${colors.text.secondary};
           border: 0.125em solid ${colors.input.border};
           border-radius: 9999px;
           background-color: ${colors.input.border};
-
           &:focus {
             border-color: ${colors.input.focusBorder};
             box-shadow: 0 0 10px -1px ${colors.input.focusBoxShadow};
             transition: all 0.2s ease-in-out;
           }
-
           &::-webkit-input-placeholder {
             color: ${colors.text.placeholder};
           }

@@ -44,3 +44,21 @@
       link: /docs/start-with-umi/plugin
     - title: 生命周期
       link: /docs/start-with-umi/lifecycle
+
+- title: 五大基础知识
+  link: /docs/basic-knowledge
+  items:
+    - title: 创建项目
+      link: /docs/basic-knowledge/create-project
+    - title: 定义组件
+      link: /docs/basic-knowledge/define-component
+    - title: 基本调试
+      link: /docs/basic-knowledge/debug
+    - title: 概念
+      link: /docs/basic-knowledge/concept
+    - title: 官方模块
+      link: /docs/basic-knowledge/official-module
+    - title: 插件机制
+      link: /docs/basic-knowledge/plugin
+    - title: 生命周期
+      link: /docs/basic-knowledge/lifecycle
